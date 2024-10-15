@@ -46,28 +46,27 @@ print(paste('mean = ', mean(my1000$kkardashtemp),' sd = ',sd(my1000$kkardashtemp
 ```
 
 
-When we put in numb 9 it looks like when rating kkarrdashtemp there is a higher uptake in male than female, with female being very close to zero and male being very close to 100.   
-
-
+In our original and set standard deviation when deciding on kkardashtemp and how male and female view kim kardashion's attractiveness. Many of the female voted very low in the opinion of kkardashtemp and many male voted in favor of her.  When we put in numb 9 it looks like when rating kkarrdashtemp there is a higher uptake in male than female, with female being very close to zero and male being very close to 100.   
+When our numb is 16 I believe our standard deviation will be around 10.4 
 ```{r}
-numb=9
+numb=16
 Hdata = Homers_data[sample(1:1000, size=numb*1000, replace=T),"kkardashtemp"]
 mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
 x.avg <- apply(mdata,1,mean)
-my1000$k2 = x.avg
+my1000$k16 = x.avg
 
-p <- ggplot(my1000, aes(x=k2)) + 
+p <- ggplot(my1000, aes(x=k16)) + 
   geom_density() 
 p
 
 # Add mean line
-  geom_vline(aes(xintercept=mean(k2)),
+  geom_vline(aes(xintercept=mean(k16)),
             color="blue", linetype="dashed", size=1)
-print(paste('mean = ', mean(my1000$k2),' sd = ',sd(my1000$k2)))
+print(paste('mean = ', mean(my1000$k16),' sd = ',sd(my1000$k16)))
 
 ```
 
-With numb 9 we can observe that there is a peak with MF both influencing each other and being more towards the left, the lesser side on the kkardashtemp scale.  
+With numb 9 we can observe that there is a peak with MF both influencing each other and being more towards the left, the lesser side on the kkardashtemp scale. When trying numb 16 the sd is about 10.1 and the curve of the voting is becoming less varied and more rounded out with a lean to the right which is where they are in favor of kkardashttemp. 
 
 ## We expect the sample mean to be close to population and the standev to get smaller by the ratio of one to the sample size. In this case 1/sqrt(2)
 
@@ -76,23 +75,23 @@ With numb 9 we can observe that there is a peak with MF both influencing each ot
 
 
 ```{r}
-numb = 9
+numb = 16
 Hdata = Homers_data[sample(1:1000,size=numb*1000, replace=T),"kkardashtemp"]
 mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
 x.avg <- apply(mdata,1,mean)
-my1000$k4 = x.avg
+my1000$k16 = x.avg
 
 
-p <- ggplot(my1000, aes(x=k4),col=sex) + 
+p <- ggplot(my1000, aes(x=k16),col=sex) + 
   geom_density() +
 
 # Add mean line
- geom_vline(aes(xintercept=mean(k4)),
+ geom_vline(aes(xintercept=mean(k16)),
             color="blue", linetype="dashed", size=1)
 p + ggtitle("n = 4") +
   xlab("temperature") + ylab(" density")
 
-print(paste('mean = ', mean(my1000$k4),' sd = ',sd(my1000$k4)))
+print(paste('mean = ', mean(my1000$k16),' sd = ',sd(my1000$k16)))
 
 ```
 
@@ -101,4 +100,4 @@ print(paste('mean = ', mean(my1000$k4),' sd = ',sd(my1000$k4)))
 
 # Now finish by adding blocks with numb being 9, then 16, 25, and 36. be sure to mention how the standard deviation progresses as the sample size changes,
 
- Unlike before the graph was more varied this graph with our new standard deviation about 14 with the numb 9 is more blended in with smaller loops than the dipping five we use to see. 
+Unlike before the graph was more varied this graph with our new standard deviation about 14 with the numb 9 is more blended in with smaller loops than the dipping five we use to see. With the numb 16 the graph looks to be less leaning towards anywhere and more coming to a consensus in the middle and to a peak but it is still more towards the right. 
